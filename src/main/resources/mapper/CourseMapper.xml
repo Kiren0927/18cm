@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.homework.mapper.CourseMapper">
+
+    <resultMap id="CourseMapperResult" type="course">
+        <id property="courseNum" column="course_num"/>
+        <result property="courseName" column="course_name"/>
+        <result property="courseBeginTime" column="course_begintime"/>
+        <result property="courseEndTime" column="course_endtime"/>
+        <result property="userNum" column="user_num"/>
+    </resultMap>
+
+    <select id="findCourseByNum" resultMap="CourseMapperResult" parameterType="int">
+        select * from course where course_num = #{num}
+    </select>
+
+    <select id="findAllCourse" resultMap="CourseMapperResult" >
+        select * from course
+    </select>
+
+<!--    useGeneratedKeys="true" keyProperty="id"-->
+    <insert id="insertCourse" parameterType="course" >
+        insert into course(course_num,course_name,course_begintime,course_endtime,user_num)
+        values (#{courseNum},#{courseName},#{courseBeginTime},#{courseEndTime},#{userNum})
+    </insert>
+
+    <delete id="deleteCourse" parameterType="int">
+        delete from course where course_num=#{num}
+    </delete>
+
+    <update id="updateCourse" parameterType="course">
+        update course
+        <set>
+            <if test="courseName != null">
+                course_name = #{courseName},
+            </if>
+            <if test="courseBeginTime != null">
+                course_begintime = #{courseBeginTime},
+            </if>
+            <if test="courseEndTime != null">
+                course_endtime = #{courseEndTime},
+            </if>
+            <if test="userNum != null">
+                user_num = #{userNum},
+            </if>
+        </set>
+        where course_num = #{courseNum}
+    </update>
+
+</mapper>

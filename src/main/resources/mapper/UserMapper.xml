@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.homework.mapper.UserMapper">
+    
+    <resultMap id="UserMapperResult"  type="user">
+        <result property="userName" column="user_name"/>
+        <result property="userNum" column="user_num"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userPsw" column="user_psw"/>
+        <result property="userSex" column="user_sex"/>
+        <result property="userType" column="user_type"/>
+    </resultMap>
+    
+    <select id="selectOneUser" parameterType="int" resultMap="UserMapperResult">
+        select * from user where user_num=#{num}
+    </select>
+</mapper>

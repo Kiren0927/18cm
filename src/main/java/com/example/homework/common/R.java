@@ -27,5 +27,4 @@ public class R<T> {
         r.msg = msg;
         return r;
     }
-
 }

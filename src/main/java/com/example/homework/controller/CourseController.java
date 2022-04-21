@@ -9,13 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-    @RestController
-    @Slf4j
-    @RequestMapping("/courses")
-    public class CourseController {
-        @Autowired
-        private CourseService courseService;
-
+@RestController
+@Slf4j
+@RequestMapping("/courses")
+public class CourseController {
+    @Autowired
+    private CourseService courseService;
     /**
      * 根据课程编号查课
      * @param num 课程编号
@@ -56,6 +55,4 @@ import org.springframework.web.bind.annotation.*;
         R<String> r = courseService.updateCourse(course);
         return r;
     }
-
-
 }

@@ -14,4 +14,5 @@
     <select id="selectOneUser" parameterType="int" resultMap="UserMapperResult">
         select * from user where user_num=#{num}
     </select>
+
 </mapper>

@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public interface CourseService {
-
     R<Course> findCourseByNum(int num);
 
     R<PageInfo<Course>> findAllCourse(int pageNum, int pageSize);

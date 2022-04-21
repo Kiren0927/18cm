@@ -40,7 +40,6 @@ public class CourseServiceImpl implements CourseService {
         return R.success(pageInfo);
     }
 
-
     @Override
     public R<String> insertCourse(@RequestBody Course course) {
         if (courseMapper.findCourseByNum(course.getCourseNum()) != null){

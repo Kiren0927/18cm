@@ -18,7 +18,7 @@
         select * from course
     </select>
 
-<!--    useGeneratedKeys="true" keyProperty="id"-->
+
     <insert id="insertCourse" parameterType="course" >
         insert into course(course_num,course_name,course_begintime,course_endtime,user_num)
         values (#{courseNum},#{courseName},#{courseBeginTime},#{courseEndTime},#{userNum})
@@ -47,4 +47,11 @@
         where course_num = #{courseNum}
     </update>
 
+    <select id="findCourseByUserNum" parameterType="int" resultMap="CourseMapperResult">
+        select c.* from course c,user_course uc where uc.course_num = c.course_num and uc.user_num = #{userNum}
+    </select>
+
+    <select id="teacherFindCourseByUserNum" parameterType="int" resultMap="CourseMapperResult">
+        select * from course where user_num = #{userNum}
+    </select>
 </mapper>

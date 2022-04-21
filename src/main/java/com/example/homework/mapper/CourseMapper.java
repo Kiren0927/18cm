@@ -19,4 +19,9 @@ public interface CourseMapper {
     void deleteCourse(int num);
 
     void updateCourse(Course course);
+
+    List<Course> findCourseByUserNum(int userNum);
+
+
+    List<Course> teacherFindCourseByUserNum(int userNum);
 }
